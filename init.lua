@@ -28,6 +28,7 @@ vim.opt.relativenumber = true -- Relative numbering para sa mabilis na galaw
 vim.opt.wrap = true -- I-wrap ang mahahabang linya
 vim.opt.linebreak = true -- Huwag hatiin ang salita kapag nag-wrap
 vim.opt.breakindent = true -- Sundan ang indent kahit naka-wrap
+vim.opt.showbreak = "↪" -- Optional: symbol for wrapped lines
 
 ----------------------------------------------------
 -- INDENTATION (PRO STANDARD)
