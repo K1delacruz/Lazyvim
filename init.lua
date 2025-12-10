@@ -65,7 +65,7 @@ vim.opt.undofile = true -- I-save ang undo history kahit isara ang file
 ----------------------------------------------------
 vim.opt.updatetime = 250 -- Mas mabilis ang git/LSP updates
 vim.opt.timeoutlen = 300 -- Mas mabilis ang key-combo response
-vim.opt.lazyredraw = true -- Mas smooth ang scrolling
+vim.opt.lazyredraw = false -- Mas smooth ang scrolling
 
 ----------------------------------------------------
 -- SPLITS BEHAVIOR
