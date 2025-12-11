@@ -145,4 +145,44 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv") -- Ilipat selected pababa
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- Ilipat selected pataas
 
+----------------------------------------------------
+-- AUTOCMD
+----------------------------------------------------
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  callback = function()
+    vim.cmd("silent! write")
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "txt", "md", "lua", "python", "html" }, -- files na gusto mo i-wrap
+  callback = function()
+    vim.wo.wrap = true
+    vim.wo.linebreak = true
+    vim.wo.showbreak = "↪ "
+  end,
+})
+
+----------------------------------------------------
+-- Auto-folding per filetype (Indent Folding)
+----------------------------------------------------
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "lua",
+    "python",
+  },
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldexpr = ""
+    vim.opt_local.foldenable = true
+    vim.opt_local.foldlevel = 99
+  end,
+})
+
 require("config.lazy")
